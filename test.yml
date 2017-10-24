@@ -1,5 +1,5 @@
 ---
-- hosts: 127.0.0.1
+- hosts: ops-test-001
   tasks:
     - debug:
         msg: "Hello World"
