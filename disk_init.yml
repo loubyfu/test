@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+  - name: fdisk new disk
+    filesystem: fstype=ext4 dev=/dev/{{DISK_NAME}}
+  - name: mount new disk
+    mount: name=/mnt src=/dev/{{DISK_NAME}} fstype=ext4 state=mounted opts=defaults
+  - name: delete lost+found
+    file: path=/mnt/lost+found state=absent
